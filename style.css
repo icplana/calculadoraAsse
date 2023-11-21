@@ -30,6 +30,12 @@
 h1, h3{
     text-align: center;
 }
+header > p {
+    margin: 0 auto;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
 #lightMode{
     display: block;
