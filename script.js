@@ -1,3 +1,9 @@
+// Pendiente
+// poder utilizar teclado - done
+// Poder conservar el ultimo resultado como primer valor de la siguiene operación
+
+
+
 document.addEventListener('DOMContentLoaded',() => {
 
     let htmlTag = document.querySelector('html')
@@ -102,6 +108,8 @@ document.addEventListener('DOMContentLoaded',() => {
         calculate()
         updateLog()
         resetForm()   
+        firstValue === operationLog[operationLog.length -1].result
+        console.log(operationLog)
     }
     equalBtn.addEventListener('click', (e) =>{
         e.preventDefault()
@@ -130,7 +138,16 @@ document.addEventListener('DOMContentLoaded',() => {
 
     
 
-
+    window.addEventListener('keydown' , (e) => {
+        
+        // console.log(e)
+        document.querySelector('#inputText').focus()
+        if ( e.key === '/') handleSignBtn(e, '/')
+        if ( e.key === '*') handleSignBtn(e, 'x')
+        if ( e.key === '+') handleSignBtn(e, '+')
+        if ( e.key === '-') handleSignBtn(e, '-')
+        if ( e.key === 'Enter') handleEqual()
+    })
 
 
 
