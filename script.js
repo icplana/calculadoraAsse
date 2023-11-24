@@ -159,7 +159,22 @@ document.addEventListener('DOMContentLoaded',() => {
         else if ( e.key === '+') handleSignBtn(e, '+')
         else if ( e.key === '-') handleSignBtn(e, '-')
         else if ( e.key === 'Enter') handleEqual()
-        else if ( e.key !== "0" && e.key !== "1" && e.key !== "2" && e.key !== "4" && e.key !== "5" && e.key !== "6" && e.key !== "7" && e.key !== "8" && e.key !== "9" && e.key !== "." ){
+        else if ( e.key !== "0" && 
+                  e.key !== "1" && 
+                  e.key !== "2" && 
+                  e.key !== "4" && 
+                  e.key !== "5" && 
+                  e.key !== "6" && 
+                  e.key !== "7" && 
+                  e.key !== "8" && 
+                  e.key !== "9" &&
+                  e.key !== "Backspace" &&
+                  e.key !== "ArrowLeft" &&
+                  e.key !== "ArrowDown" &&
+                  e.key !== "ArrowUp" &&
+                  e.key !== "ArrowRight" &&
+                  e.key !== "Delete" &&
+                  e.key !== "." ){
             e.preventDefault()
             return        
         }
@@ -170,7 +185,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
         // ------------ WHILE DEVELOPING CODE --------------- //
 
-        
+
 
 //PRINT OPERATION DATA VALUES BUTTON - JUST FOR DEVELOPING PURPOSES
     // const print = () => {
