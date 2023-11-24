@@ -6,6 +6,8 @@
 
 document.addEventListener('DOMContentLoaded',() => {
 
+
+    //DARKMODE
     let htmlTag = document.querySelector('html')
     const lightModeBtn = document.querySelector('#lightMode')
      lightModeBtn.addEventListener('click', () => {
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
 
 
-
+     //CALC OPERATION LOGIC 
     let firstValue = null
     let secondValue = null
     let sign = null
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded',() => {
         operationLog = [...operationLog, {firstValue, sign, secondValue, result}]       
     }
 
+    //SHOW OPERATION AND RESULT ON SCREEN
     const printActualOperation = () => {
         if (firstValue && sign && secondValue){
             let actualOperationSpan = document.querySelector('#actualOperation')
@@ -43,6 +46,7 @@ document.addEventListener('DOMContentLoaded',() => {
         }
     }
 
+    //OPERATIONLOG REGISTER (ARRAY)
     const updateLog = () => {
         let logList = document.querySelector('.logList')
         logList.innerHTML = null
@@ -53,6 +57,7 @@ document.addEventListener('DOMContentLoaded',() => {
         })
     }
 
+    //CLEAN VALUES AFTER OPERATION
     const resetForm = () => {
         firstValue = null
         secondValue = null
@@ -60,6 +65,7 @@ document.addEventListener('DOMContentLoaded',() => {
         document.querySelector('#inputText').value = null
     }
 
+    //INPUT HANDELING - NUMBERS
     const handleNumberBtn = ( e, number ) => {
         e.preventDefault();        
         document.querySelector('#inputText').value !== null
@@ -67,6 +73,7 @@ document.addEventListener('DOMContentLoaded',() => {
         : document.getElementById('inputText').value = number          
     }
 
+    //INPUT HANDELING - OPERATORS
     const handleSignBtn = (e, btnSign) => {
         e.preventDefault()  
         if (document.querySelector('#inputText'). value === '') return  
@@ -85,23 +92,10 @@ document.addEventListener('DOMContentLoaded',() => {
        
     }
 
-    let numberBtns = document.querySelectorAll('.numberBtn')
-    numberBtns.forEach( btn => {    
-        btn.addEventListener('click', (e) => handleNumberBtn(e, e.target.innerText))
-    })
-
-    let signBtns = document.querySelectorAll('.signBtn')
-    signBtns.forEach( btn => {   
-        btn.addEventListener('click', (e) => handleSignBtn(e, e.target.innerText))
-    })
-
-    let equalBtn = document.querySelector('.equalBtn')
-    let form = document.querySelector('form')
-    console.log(form)
+    //INPUT HANDELING - EQUAL
     const handleEqual = () => {
         secondValue = document.querySelector('#inputText').value
         if ( firstValue === null || secondValue === null || sign === null ) {
-            // alert('Error');
             return
         }
         printActualOperation()
@@ -111,16 +105,36 @@ document.addEventListener('DOMContentLoaded',() => {
         firstValue === operationLog[operationLog.length -1].result
         console.log(operationLog)
     }
+
+    //EVENT HANDELING BUTTONS
+
+        //NUMBER BUTTONS
+    let numberBtns = document.querySelectorAll('.numberBtn')
+    numberBtns.forEach( btn => {    
+        btn.addEventListener('click', (e) => handleNumberBtn(e, e.target.innerText))
+    })
+
+        //OPERATORS BUTTONS
+    let signBtns = document.querySelectorAll('.signBtn')
+    signBtns.forEach( btn => {   
+        btn.addEventListener('click', (e) => handleSignBtn(e, e.target.innerText))
+    })
+
+        //EQUAL BUTTON
+    let equalBtn = document.querySelector('.equalBtn')
     equalBtn.addEventListener('click', (e) =>{
         e.preventDefault()
         handleEqual()   
     })
+
+    //FORM SUBMIT 
+    let form = document.querySelector('form')  
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         handleEqual()
     })
 
-
+    //C BUTTON
     let cBtn = document.querySelector('.btnC')
     cBtn.addEventListener('click', (e) => {
         e.preventDefault()
@@ -129,29 +143,36 @@ document.addEventListener('DOMContentLoaded',() => {
         secondValue = null
         document.querySelector('#inputText').value = null
         document.querySelector('#inputText').removeAttribute('placeholder')
-        document.querySelector('#actualOperation').innerText = null
-
-        
+        document.querySelector('#actualOperation').innerText = null        
     })
 
 
 
     
-
+    //EVENT HANDLING TO USE KEYBOARD AND FILTER ONLY NUMBERS TO THE INPUT VALUE
     window.addEventListener('keydown' , (e) => {
         
         // console.log(e)
         document.querySelector('#inputText').focus()
         if ( e.key === '/') handleSignBtn(e, '/')
-        if ( e.key === '*') handleSignBtn(e, 'x')
-        if ( e.key === '+') handleSignBtn(e, '+')
-        if ( e.key === '-') handleSignBtn(e, '-')
-        if ( e.key === 'Enter') handleEqual()
+        else if ( e.key === '*') handleSignBtn(e, 'x')
+        else if ( e.key === '+') handleSignBtn(e, '+')
+        else if ( e.key === '-') handleSignBtn(e, '-')
+        else if ( e.key === 'Enter') handleEqual()
+        else if ( e.key !== "0" && e.key !== "1" && e.key !== "2" && e.key !== "4" && e.key !== "5" && e.key !== "6" && e.key !== "7" && e.key !== "8" && e.key !== "9" && e.key !== "." ){
+            e.preventDefault()
+            return        
+        }
     })
 
 
 
 
+        // ------------ WHILE DEVELOPING CODE --------------- //
+
+        
+
+//PRINT OPERATION DATA VALUES BUTTON - JUST FOR DEVELOPING PURPOSES
     // const print = () => {
 //         console.log({firstValue, sign, secondValue, operationLog})
 //     }
