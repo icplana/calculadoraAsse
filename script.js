@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded',() => {
         if (document.querySelector('#inputText'). value === '') return  
         sign = btnSign       
         if ( firstValue !== null && secondValue === null ) {
-            console.log('test')
             secondValue = document.querySelector('#inputText').value
             printActualOperation()
             calculate()       
@@ -157,7 +156,10 @@ document.addEventListener('DOMContentLoaded',() => {
         else if ( e.key === '*') handleSignBtn(e, 'x')
         else if ( e.key === '+') handleSignBtn(e, '+')
         else if ( e.key === '-') handleSignBtn(e, '-')
-        else if ( e.key === 'Enter') handleEqual()
+        else if ( e.key === 'Enter') {
+                                        e.preventDefault();
+                                        handleEqual()
+                                    }
         else if ( e.key !== "0" && 
                   e.key !== "1" && 
                   e.key !== "2" && 
@@ -188,9 +190,9 @@ document.addEventListener('DOMContentLoaded',() => {
 
 //PRINT OPERATION DATA VALUES BUTTON - JUST FOR DEVELOPING PURPOSES
     // const print = () => {
-//         console.log({firstValue, sign, secondValue, operationLog})
-//     }
+    //     console.log({firstValue, sign, secondValue, operationLog})
+    // }
 
-//     document.querySelector('#print').addEventListener('click', print)
+    // document.querySelector('#print').addEventListener('click', print)
 })
 

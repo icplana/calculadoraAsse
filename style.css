@@ -4,20 +4,13 @@
     --secondary-color: #222;
     --third-color: #ccc;
     
-
-    /* DarkMode */
-    /* --primary-color:#222;
-    --secondary-color:#eee;
-    --third-color: #444
-    */
-
 }
 *{
     background-color: var(--primary-color);
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: var(--secondary-color);
-    background-color:var(--primary-color)
+    
 
 }
 
@@ -88,7 +81,7 @@ header > p {
     margin-right: 1rem;
     margin-bottom: 1rem;
     padding-top: 3.2rem;
-    padding-right: .5rem;
+    padding-right: 1rem;
 
     background-color: lightgray;
 
@@ -111,6 +104,8 @@ header > p {
 #inputText::placeholder{
     color: rgb(46, 46, 46);
     font-style: italic;
+    padding-right: 1rem;
+   
 }
 
 .btn{
