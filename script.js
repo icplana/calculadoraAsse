@@ -1,5 +1,4 @@
 // Pendiente
-// poder utilizar teclado - done
 // Poder conservar el ultimo resultado como primer valor de la siguiene operación
 
 
@@ -103,7 +102,7 @@ document.addEventListener('DOMContentLoaded',() => {
         updateLog()
         resetForm()   
         firstValue === operationLog[operationLog.length -1].result
-        console.log(operationLog)
+        
     }
 
     //EVENT HANDELING BUTTONS

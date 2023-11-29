@@ -80,20 +80,29 @@ header > p {
 #inputText{
     grid-column: 1/5;
     grid-row: 1/2;
+
     border:none;
+
     font-size: 1.2rem;
+
     margin-right: 1rem;
     margin-bottom: 1rem;
-    background-color: lightgray;
-    color: black;
-    width: 100%;
-    height: 7.5rem;
-    border-radius: 0.4rem;
-    display: flex;
-    text-align: end;
-    color:#0e0e0e;
     padding-top: 3.2rem;
     padding-right: .5rem;
+
+    background-color: lightgray;
+
+
+    color:#0e0e0e;
+
+    width: 100%;
+    height: 7.5rem;
+
+    border-radius: 0.4rem;
+
+    display: flex;
+
+    text-align: end;
     
 
     
